@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Editor</title>
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+    }
+
+    #editor {
+        padding: 20px;
+        position: absolute;
+        width: 80%;
+	height: 80%;
+    }
+  </style>
+</head>
+<body>
+
+<pre id="editor">
+#include&ltiostream&gt
+#include&ltcstring&gt
+#include&ltcstdlib&gt
+#include&ltmap&gt
+#include&ltvector&gt
+#include&ltset&gt
+#include&ltqueue&gt
+#include&ltcmath&gt
+#include&ltalgorithm&gt
+
+using namespace std;
+
+class Solution {
+        public:
+                vector&ltint&gt plusOne(vector&ltint&gt &digits) {
+                        // WRITE YOUR CODE HERE
+                }
+};
+
+int main() {
+        Solution obj;
+        int numDigits; 
+        cin&gt&gtnumDigits;
+        int tmp;
+        vector&ltint&gt digits;
+        for (int i = 0; i &lt numDigits; i++) {
+                scanf("%d", &tmp);
+                digits.push_back(tmp);
+        }
+        vector&ltint&gt ans = obj.plusOne(digits);
+        for (int i = 0; i &lt ans.size(); i++) {
+                printf("%d ", ans[i]);
+        }
+        cout&lt&ltendl;
+        return 0;
+}
+</pre>
+
+<script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.getSession().setMode("ace/mode/c_cpp");
+</script>
+
+</body>
+</html>
