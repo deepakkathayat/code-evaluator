@@ -1,0 +1,57 @@
+<h1>Submit a source code</h1>
+
+<%= form_for :code, url: code_eval_index_path do |f| %>
+
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body, :value => @message, :rows => 20, :cols => 60, 'data-editor' => 'c_cpp' %>
+  </p>
+  <p>
+    <%= f.submit "Submit" %>
+    <%= f.submit "Test", :name => "test_button" %>	
+    <%= f.submit "Reset", :name => "reset_button" %>
+  </p>
+<% end %>
+
+
+<script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
+<script>
+    // Hook up ACE editor to all textareas with data-editor attribute
+    $(function () {
+        $('textarea[data-editor]').each(function () {
+            var textarea = $(this);
+
+            var mode = textarea.data('editor');
+
+            var editDiv = $('<div>', {
+                position: 'absolute',
+                width: textarea.width(),
+                height: textarea.height(),
+                'class': textarea.attr('class')
+            }).insertBefore(textarea);
+
+            textarea.css('visibility', 'hidden');
+
+            var editor = ace.edit(editDiv[0]);
+            editor.renderer.setShowGutter(false);
+            editor.getSession().setValue(textarea.val());
+            editor.getSession().setMode("ace/mode/" + mode);
+            editor.setTheme("ace/theme/idle_fingers");
+            
+            // copy back to textarea on form submit...
+            textarea.closest('form').submit(function () {
+                textarea.val(editor.getSession().getValue());
+            })
+
+        });
+    });
+</script>
+
+<!-- <textarea class="my-code-area" rows="4" style="width: 100%">puts 'foo'</textarea> -->
+<!-- <script> -->
+<!--   // Decorator -->
+<!--   var decorator = $('.my-code-area').data('ace'); -->
+
+<!--   // ACE Code Editor instance -->
+<!--   var aceInstance = decorator.ace; -->
+<!-- </script> -->

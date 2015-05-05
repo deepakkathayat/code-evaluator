@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    ace-rails-ap (3.0.2)
     actionmailer (4.2.1)
       actionpack (= 4.2.1)
       actionview (= 4.2.1)
@@ -69,6 +68,7 @@ GEM
     jbuilder (2.2.13)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jquery-ace-rails (1.0.1)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -174,11 +174,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ace-rails-ap (~> 3.0.2)
   byebug
   coffee-rails (~> 4.1.0)
   ideone-ruby-api
   jbuilder (~> 2.0)
+  jquery-ace-rails
   jquery-rails
   rails (= 4.2.1)
   sass-rails (~> 5.0)
