@@ -5,7 +5,8 @@ require 'ideone'
 class CodeEvalController < ApplicationController
   respond_to :html, :js
   def index
-    @message = Sourcecode.first.body
+    @base_template = Sourcecode.first.body
+    @problem = Sourcecode.first.problem    
   end
 
   def create

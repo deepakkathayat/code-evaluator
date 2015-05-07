@@ -1,10 +1,13 @@
+<html>
 <h1>Submit a source code</h1>
+
+<p><%= raw @problem %> </p>
 
 <%= form_for :code, remote:true, url: code_eval_index_path do |f| %>
 
   <p>
     <%= f.label :body %><br />
-    <%= f.text_area :body, :value => @message, :rows => 20, :cols => 60, 'data-editor' => 'c_cpp' %>
+    <%= f.text_area :body, :value => @base_template, :rows => 20, :cols => 60, 'data-editor' => 'c_cpp' %>
   </p>
   <p>
     <%= f.submit "Submit" %>
@@ -15,7 +18,7 @@
 
 <div id="result-box" style="display:none;">
 </div>
-
+</html>
 <script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
 <script>
     // Hook up ACE editor to all textareas with data-editor attribute
