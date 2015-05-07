@@ -1,6 +1,6 @@
 <h1>Submit a source code</h1>
 
-<%= form_for :code, url: code_eval_index_path do |f| %>
+<%= form_for :code, remote:true, url: code_eval_index_path do |f| %>
 
   <p>
     <%= f.label :body %><br />
@@ -13,6 +13,8 @@
   </p>
 <% end %>
 
+<div id="result-box" style="display:none;">
+</div>
 
 <script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
 <script>
