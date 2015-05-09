@@ -1,2 +1,13 @@
+<% if params[:test_button] %>
 $('#result-box').html("<%= escape_javascript (render partial: 'create') %>");
 $('#result-box').slideDown(550);
+<% end %>
+
+<% if params[:submit_button] %>
+$('#result-box').html("<%= escape_javascript (render partial: 'create') %>");
+$('#result-box').slideDown(550);
+<% end %>
+
+<% if params[:reset_button] %>
+$('#result-box').slideUp(550);
+<% end %>	

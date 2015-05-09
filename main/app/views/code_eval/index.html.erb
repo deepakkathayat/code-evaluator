@@ -10,11 +10,13 @@
     <%= f.text_area :body, :value => @base_template, :rows => 20, :cols => 60, 'data-editor' => 'c_cpp' %>
   </p>
   <p>
-    <%= f.submit "Submit" %>
-    <%= f.submit "Test", :name => "test_button" %>	
+    <%= f.submit "Submit", :name => "submit_button" %>
+    <%= f.submit "Test", :name => "test_button"  %>	
     <%= f.submit "Reset", :name => "reset_button" %>
   </p>
 <% end %>
+
+<%= link_to "<button>Reset</button>".html_safe, :action => :index %>
 
 <div id="result-box" style="display:none;">
 </div>
@@ -39,6 +41,7 @@
 
             var editor = ace.edit(editDiv[0]);
             editor.renderer.setShowGutter(false);
+
             editor.getSession().setValue(textarea.val());
             editor.getSession().setMode("ace/mode/" + mode);
             editor.setTheme("ace/theme/idle_fingers");
