@@ -3,20 +3,29 @@
 
 <p><%= raw @problem %> </p>
 
-<%= form_for :code, remote:true, url: code_eval_index_path do |f| %>
+<%= form_for :code, remote:true, class: 'form-horizontal', url: code_eval_index_path do |f| %>
 
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body, :value => @base_template, :rows => 20, :cols => 60, 'data-editor' => 'c_cpp' %>
-  </p>
-  <p>
-    <%= f.submit "Submit", :name => "submit_button" %>
-    <%= f.submit "Test", :name => "test_button"  %>	
-    <%= f.submit "Reset", :name => "reset_button" %>
-  </p>
-<% end %>
+<div class="row">
+<div class="field form-group">
+  <%= f.label :body %><br />
+	<div class="col-sm-10">
+      <%= f.text_area :body, :value => @base_template, class: 'form-control', :rows => 20, :cols => 60, 'data-editor' => 'c_cpp' %>
+	</div>
+  </div>
+  <div class="actions form-group">
+	<div class="col-sm-5">
+  	  <%= link_to "<button class=\"btn btn-danger\">Reset</button>".html_safe, :action => :index %>
+	</div>
 
-<%= link_to "<button>Reset</button>".html_safe, :action => :index %>
+	<div class="col-sm-offset-3 col-sm-3">
+	  <%= f.submit "Test", :name => "test_button", class: 'btn btn-info'  %>
+	  <%= f.submit "Submit", :name => "submit_button", class: 'btn btn-success' %>
+	</div>
+  </div>
+</div>
+<% end %>	  
+
+
 
 <div id="result-box" style="display:none;">
 </div>
