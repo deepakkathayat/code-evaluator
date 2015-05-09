@@ -1,74 +1,183 @@
-<html>
-<h1>Submit a source code</h1>
-
-<p><%= raw @problem %> </p>
-
-<%= form_for :code, remote:true, class: 'form-horizontal', url: code_eval_index_path do |f| %>
+<ol class="breadcrumb">
+  <span class="glyphicon glyphicon-circle-arrow-left pull-left" style="margin-right: 10px;"></span>
+  <li><a href="#">Dashboard</a></li>
+  <li><a href="#">Arrays</a></li>
+  <li class="active">Plus1</li>
+</ol>
 
 <div class="row">
-<div class="field form-group">
-  <%= f.label :body %><br />
-	<div class="col-sm-10">
-      <%= f.text_area :body, :value => @base_template, class: 'form-control', :rows => 20, :cols => 60, 'data-editor' => 'c_cpp' %>
+  <div class="col-xs-12">
+    <div class="panel panel-default gray problem-statement">
+      <div class="panel-heading">
+        <h3 class="panel-title">PLUS1(use variable)</h3>
+
+      </div>
+      <div class="panel-body">
+        <div id="problem-content" class="markdown-content">
+		  <%= raw @problem %>
+		</div>
+	  </div>
 	</div>
   </div>
-  <div class="actions form-group">
-	<div class="col-sm-5">
-  	  <%= link_to "<button class=\"btn btn-danger\">Reset</button>".html_safe, :action => :index %>
+
+  <div class="col-xs-12 col-md-9">
+	<div class="panel panel-default" style="display: none">
+	  <div class="panel-body" id="status-ht"></div>
+	  <ul class="list-group" id="status-ct"></ul>
+	</div>
+	
+	<%= form_for :code, remote:true, :html => { :class => "edit_problem" } , url: code_eval_index_path do |f| %>
+
+
+	
+	<div class="panel panel-default code-editor">
+
+	  <div class="panel-heading">
+        <div class="pull-left" style="line-height: 32px; margin-left: 2.2em">
+          <span style="margin-right: 1.1em">Time Limit: <span id="time-limit">3</span> Sec</span>
+          <span style="margin-left: 1.1em">Memory Limit: <span id="memory-limit">25</span> MB</span>
+        </div>
+        <div class="pull-right">
+          <select class="form-control" name="programming_language_id" id="select-language">
+            <option value="44" selected="">C++11 (gcc-4.8)</option>
+          </select>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+	<%= f.text_area :body, :value => @base_template, :rows => 30, :cols => 120, 'data-editor' => 'c_cpp' %>
+
+	  <div class="panel-footer" style="border-top: 650 px solid #ddd;" >
+		<div class="btn-group">
+  		  <%= link_to "<button class=\"btn btn-danger\">Reset</button>".html_safe, :action => :index %>
+		</div>
+		<span id="action_message" style="margin-left: 15px"></span>
+		<div class="btn-group pull-right">
+		  <%= f.submit "Submit", :name => "submit_button", class: 'btn btn-success' %>
+		  <%= f.submit "Test", :name => "test_button", class: 'btn btn-info'  %>
+		</div>
+
+	 </div>
+	  <% end %>
+	</div>
+</div>
+	<div class="col-xs-12 col-md-3">
+      <div class="panel panel-default hint-panel">
+		<div class="panel-heading">
+          <h3 class="panel-title">Hints</h3>
+		</div>
+		<ul class="list-group hint-list">
+          <li data-less-score="50" class="list-group-item accessed-hint">
+			<a href="#">Solution Approach</a>
+			<i class="pull-right fa fa-unlock-alt glyphicon-info" style="font-size: 22px"></i>
+          </li>
+          <li data-less-score="100" class="list-group-item accessed-hint">
+			<a href="#">Complete Solution</a>
+			<i class="pull-right fa fa-unlock-alt glyphicon-info" style="font-size: 22px"></i>
+          </li>
+		</ul>
+      </div>
+
+      <div class="panel panel-success successful-submissions">
+		<div class="panel-body">
+          <span class="submission-count">#</span> successful submissions.
+		</div>
+      </div>
+
+      
+      <div class="panel-group">
+		<div class="panel panel-default company-panel">
+          <div class="panel-heading">
+			<h3 class="panel-title">Asked In:</h3>
+          </div>
+
+          <ul class="list-group">
+			<li class="list-group-item">#</li>
+          </ul>
+		</div>
+      </div>
 	</div>
 
-	<div class="col-sm-offset-3 col-sm-3">
-	  <%= f.submit "Test", :name => "test_button", class: 'btn btn-info'  %>
-	  <%= f.submit "Submit", :name => "submit_button", class: 'btn btn-success' %>
+  </div>
+
+  <div class="row">
+
+	<div id="problem_comment">
+      <div role="tabpanel">
+		<ul class="nav nav-tabs " role="tablist">
+          <li role="presentation" class="active"><a href="#fb-comments-unsolved" aria-controls="fb-comments-unsolved" role="tab" data-toggle="tab">Problem Discussion</a></li>
+          <li role="presentation"><a href="#fb-comments-solved" aria-controls="fb-comments-solved" role="tab" data-toggle="tab">Solution Discussion</a></li>
+		</ul>
+
+		<div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active" id="fb-comments-unsolved">
+			<span class="problem_comment_header">
+              This thread is for people who have not yet solved the problem. Please do not post solutions here.
+			</span>
+
+			<div class="fb-comments" data-href="#" data-width="100%"></div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="fb-comments-solved">
+			<span class="problem_comment_header">
+              This thread is for people who have solved the problem. You may discuss your solutions here
+			</span>
+
+			<div class="fb-comments" data-href="#" data-width="100%"></div>
+          </div>
+		</div>
+      </div>
+	</div>
+	<div class="panel panel-default adblck-warn hidden" style="margin-top: 20px">
+      <div class="panel-body">
+		There used to be a comment thread here.
+		<wbr>
+		But it seems you have ad block turned on.
+		<wbr>
+		We do not display ads on this site
+		<wbr>
+		and disabling ad block will improve your experience.
+      </div>
 	</div>
   </div>
 </div>
-<% end %>	  
+  <!-- ><div id="result-box" style="display:none;"></div> -->
+  <script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
+  <script>
+	// Hook up ACE editor to all textareas with data-editor attribute
+	$(function () {
+	$('textarea[data-editor]').each(function () {
+	var textarea = $(this);
+
+	var mode = textarea.data('editor');
+
+	var editDiv = $('<div>', {
+      position: 'relative',
+      width: textarea.width(),
+      height:  textarea.height(),
+      'class': textarea.attr('class')
+      }).insertBefore(textarea);
+
+	  textarea.css('display', 'none');
 
 
+      var editor = ace.edit(editDiv[0]);
+      editor.renderer.setShowGutter(true);
 
-<div id="result-box" style="display:none;">
-</div>
-</html>
-<script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
-<script>
-    // Hook up ACE editor to all textareas with data-editor attribute
-    $(function () {
-        $('textarea[data-editor]').each(function () {
-            var textarea = $(this);
+      editor.getSession().setValue(textarea.val());
+      editor.getSession().setMode("ace/mode/" + mode);
+      editor.setTheme("ace/theme/idle_fingers");
 
-            var mode = textarea.data('editor');
+	  //	editor.getSession().on('change', function(){
+	  // textarea.val(editor.getSession().getValue());
+	  //});
+	  
+      // copy back to textarea on form submit...
+      textarea.closest('form').submit(function () {
+      textarea.val(editor.getSession().getValue());
+      })
 
-            var editDiv = $('<div>', {
-                position: 'absolute',
-                width: textarea.width(),
-                height: textarea.height(),
-                'class': textarea.attr('class')
-            }).insertBefore(textarea);
+      });
+      });
+  </script>
 
-            textarea.css('visibility', 'hidden');
 
-            var editor = ace.edit(editDiv[0]);
-            editor.renderer.setShowGutter(false);
-
-            editor.getSession().setValue(textarea.val());
-            editor.getSession().setMode("ace/mode/" + mode);
-            editor.setTheme("ace/theme/idle_fingers");
-            
-            // copy back to textarea on form submit...
-            textarea.closest('form').submit(function () {
-                textarea.val(editor.getSession().getValue());
-            })
-
-        });
-    });
-</script>
-
-<!-- <textarea class="my-code-area" rows="4" style="width: 100%">puts 'foo'</textarea> -->
-<!-- <script> -->
-<!--   // Decorator -->
-<!--   var decorator = $('.my-code-area').data('ace'); -->
-
-<!--   // ACE Code Editor instance -->
-<!--   var aceInstance = decorator.ace; -->
-<!-- </script> -->

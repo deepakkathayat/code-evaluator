@@ -1,0 +1,147 @@
+#problem-content,#problem-prenote,.modal-body {
+    border: none;
+    font-family: 'Source Sans Pro', Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 16px;
+    padding: 15px
+}
+
+.ace_editor,.ace_editor * {
+    font-family: 'Source Code Pro', Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 12px;
+    color: inherit
+}
+
+.modal-body {
+    background: #ffffff;
+    max-height: 500px;
+    overflow: auto
+}
+
+.problem-time-counter {
+    background-color: #F3F7F8;
+    color: #63b1c6;
+    font-size: 16px
+}
+
+.problem-time-counter .timer-icon {
+    color: #63b1c6;
+    position: relative;
+    top: 3px;
+    margin-right: 12px
+}
+
+.code-editor pre {
+    margin: 0
+}
+
+.problem-statement,.problem-time-counter,.hint-panel,.company-panel,.code-editor {
+    box-shadow: 0 1.5px 4px rgba(0,0,0,0.24),0 1.5px 6px rgba(0,0,0,0.12);
+    border: 0
+}
+
+.code-editor>* .btn {
+    box-shadow: 0 1.5px 4px rgba(0,0,0,0.24),0 1.5px 6px rgba(0,0,0,0.12);
+    border: 0;
+    border-radius: 5px;
+    text-align: center;
+    width: 110px
+}
+
+.code-editor>* .btn:hover {
+    box-shadow: 0 3px 12px rgba(0,0,0,0.23),0 3px 12px rgba(0,0,0,0.16)
+}
+
+#help_button {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    background-color: #63b1c6;
+    -webkit-transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    border-radius: 0 0 10px 10px;
+    color: white
+}
+
+#help_button .glyphicon {
+    color: white;
+    margin-right: 5px
+}
+
+#help_button #help_text {
+    position: relative;
+    top: -5px
+}
+
+#problem_comment {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+#problem_comment .nav-tabs>li {
+    width: 50%;
+    text-align: center;
+    font-weight: bold
+}
+
+.problem_comment_header {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    margin-top: 15px;
+    display: inline-block;
+    color: #333
+}
+
+#status-ct li:first-child {
+    border-top: 0
+}
+
+#status-ct li i {
+    width: 40px;
+    text-align: center;
+    font-size: 26px;
+    margin-right: 20px;
+    vertical-align: middle
+}
+
+#status-ct li span {
+    color: #000000;
+    font-weight: bold
+}
+
+.bottom-right span {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 10px
+}
+
+.bottom-right .fa,.bottom-right .glyphicon {
+    font-size: 32px;
+    margin-right: 10px;
+    vertical-align: middle
+}
+
+.successful-submissions {
+    background-color: #57DEB5;
+    color: #FFFFFF
+}
+
+.successful-submissions .panel-body {
+    font-size: 18px
+}
+
+.successful-submissions .panel-body .submission-count {
+    font-size: 26px
+}
+
