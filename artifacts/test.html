@@ -1,0 +1,573 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="author" content="Kings Gambit Labs">
+  <title>Problem: PLUS1 — InterviewBit</title>
+<meta name="description" content="Your Personal Guide for Tech Interviews." />
+<meta property="og:title" content="Problem: PLUS1 - InterviewBit" />
+<meta property="og:image" content="https://dajh2p2mfq4ra.cloudfront.net/assets/favicon-9414372d0345a6e17040ae77f41c1c5fc151f5dc7cd6c63d9887cfef8552734a.png.gz" />
+<meta property="og:url" content="http://www.interviewbit.com/courses/programming/topics/arrays/problems/plus1/" />
+<meta property="og:description" content="Your Personal Guide for Tech Interviews." />
+<meta property="og:site_name" content="InterviewBit" />
+<link rel="canonical" href="http://www.interviewbit.com/courses/programming/topics/arrays/problems/plus1/" />
+  <meta property="fb:app_id" content="314158428787536" />
+  <link rel="icon" type="image/png" href="https://dajh2p2mfq4ra.cloudfront.net/assets/favicon-9414372d0345a6e17040ae77f41c1c5fc151f5dc7cd6c63d9887cfef8552734a.png.gz">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://dajh2p2mfq4ra.cloudfront.net/assets/html5shiv-d3d35aa8c5c7074d41080b04f1324ad142a05add2f6e1e2ac7028b1eb3bece66.js.gz" media="all"></script>
+  <script src="https://dajh2p2mfq4ra.cloudfront.net/assets/respond-1eb4056943b719145e84e3e14d09aca8908b67daf6eedbfb2713463424c30b83.js.gz" media="all"></script>
+  <![endif]-->
+
+  <script>(function () {
+    window.jsLoggerBasePath || (window.jsLoggerBasePath = '');
+
+    window.jsLoggerUrl || (window.jsLoggerUrl = "/logger/rails_client_logger/log");
+
+    window.jsLogger = {
+        invoke: function (level, message) {
+            return jQuery.ajax({
+                type: 'post',
+                beforeSend: function (xhr) {
+                    return xhr.setRequestHeader('X-CSRF-Token', jQuery('meta[name="csrf-token"]').attr('content'));
+                },
+                data: {
+                    level: level,
+                    message: message
+                },
+                complete: function (request) {
+                },
+                url: "" + window.jsLoggerBasePath + window.jsLoggerUrl
+            });
+        },
+        debug: function (message) {
+            return this.invoke('debug', message);
+        },
+        info: function (message) {
+            return this.invoke('info', message);
+        },
+        warn: function (message) {
+            return this.invoke('warn', message);
+        },
+        error: function (message) {
+            return this.invoke('error', message);
+        },
+        fatal: function (message) {
+            return this.invoke('fatal', message);
+        }
+    };
+
+    window.onerror = function (message, url, line_number) {
+        if (message instanceof jQuery.Event && message.target.src.indexOf('fbcdn-profile') !== -1 ) {
+            return;
+        } else if (message instanceof jQuery.Event && message.target.src.indexOf('graph.facebook.com') !== -1 ) {
+            return;
+        } else if ($.type(message) === 'string' && message.indexOf("Script error") !== -1) {
+            return;
+        }
+        console.log(message);
+        jsLogger.fatal("Uncaught error in: " + url + ":" + line_number + "\nDetails: " + message);
+    };
+})();
+</script>
+  <link rel="stylesheet" media="all" href="https://dajh2p2mfq4ra.cloudfront.net/assets/web/application-451bda09d14a8f760973f7b4eb09737e061d830265b38453767b2af8b93277e2.css.gz" />
+  <link rel="stylesheet" media="all" href="https://dajh2p2mfq4ra.cloudfront.net/assets/web/problems-46dc2e6bed7f7972fc21731a8c4796c9e22341203e3db0a52e254f6c5232c58a.css.gz" />
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="bfdOjIXK06TCXwg/VS4/gBKCRkFYm6KPLgI1ZOQkFWituhfk962PhoTj1ppSOf1yx+AEJQdvIaH7apdC21opJg==" />
+</head>
+<body>
+<nav class="navbar navbar-inverse mit-header" role="navigation" style="border-radius: 0;">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/dashboard/">
+        InterviewBit <span style="margin-left:5px;background-color:#B71C1C;padding:5px;border-radius:5px;">Beta</span>
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <div class="pull-left">
+            <div class="navbar-form form-group pull-left" role="search">
+              <form action="/search/" accept-charset="UTF-8" method="get">
+                  <div class="input-group">
+                    <select class="multi-tag-search form-control" style="width:24em;" name="q[]"></select>
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                    </span>
+                  </div>
+</form>            </div>
+      </div>
+      <div class="navbar-nav navbar-right">
+        <ul class="nav navbar-nav">
+              <li>
+                <a data-toggle="tooltip" data-placement="bottom" title="Stuck? Need help? Have a problem? Talk to us!" href="/chat/" target="_blank">
+                  <span class="glyphicon glyphicon-comment"></span>
+                  <span class="user-score header-items">Help</span>
+                </a>
+              </li>
+              <li>
+                <a data-toggle="tooltip" data-placement="bottom" title="Go To Puzzle Problems" href="/courses/programming/topics/puzzles/">
+                  <span class="glyphicon glyphicon-flag"></span>
+                  <span class="puzzle-problems header-items">Puzzles</span>
+                </a>
+              </li>
+              <li>
+                <a data-toggle="tooltip" data-placement="bottom" title="Total Score: 314">
+                  <span class="glyphicon glyphicon-flash"></span>
+                  <span class="user-score header-items">314</span>
+                </a>
+              </li>
+              <li>
+                <a data-toggle="tooltip" data-placement="bottom" title="0 Days Streak">
+                  <span class="glyphicon glyphicon-fire"></span>
+                  <span class="user-streak header-items">0</span>
+                </a>
+              </li>
+              <li>
+                <span class="user-level"></span>
+              </li>
+              <li class="dropdown">
+                <a id="nav-dLabel" data-target="#" href="/settings" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                  Deepak Kathayat
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="nav-dLabel">
+                  <li><a href="/settings/">Settings</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/users/sign_out/" data-method="delete" rel="nofollow">Log Out</a></li>
+                </ul>
+              </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<div class='notifications top-right'></div>
+<div class='notifications top-left'></div>
+<div class='notifications bottom-right'></div>
+<div class='notifications bottom-left'></div>
+
+
+
+<div class="container">
+  <ol class="breadcrumb">
+  <span class="glyphicon glyphicon-circle-arrow-left pull-left" style="margin-right: 10px;"></span>
+          <li><a href="/dashboard/">Dashboard</a></li>
+          <li><a href="/courses/programming/topics/arrays/">Arrays</a></li>
+      <li class="active">Plus1</li>
+</ol>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default gray problem-statement">
+        <div class="panel-heading">
+          <h3 class="panel-title">PLUS1</h3>
+
+        </div>
+        <div class="panel-body">
+              <div id="problem-content" class="markdown-content">
+                <p>Given a non-negative number represented as an array of digits,</p>
+
+<p>add 1 to the number ( increment the number represented by the digits ).</p>
+
+<p>The digits are stored such that the most significant digit is at the head of the list.</p>
+
+<p><strong>Example:</strong></p>
+
+<p>If the vector has <code class="highlighter-rouge">[1, 2, 3]</code></p>
+
+<p>the returned vector should be <code class="highlighter-rouge">[1, 2, 4]</code></p>
+
+<p>as <code class="highlighter-rouge">123 + 1 = 124</code>.</p>
+
+<blockquote>
+
+  <p><strong>NOTE:</strong> Certain things are intentionally left unclear in this question which you should practice asking the interviewer.<br />
+For example, for this problem, following are some good questions to ask :</p>
+
+  <ul>
+    <li><strong>Q :</strong> Can the input have 0’s before the most significant digit. Or in other words, is <code class="highlighter-rouge">0 1 2 3</code> a valid input ?</li>
+    <li>
+      <p><strong>A :</strong> For the purpose of this question, <strong>YES</strong></p>
+    </li>
+    <li><strong>Q :</strong> Can the output have 0’s before the most significant digit ? Or in other words, is <code class="highlighter-rouge">0 1 2 4</code> a valid output ?</li>
+    <li><strong>A :</strong> For the purpose of this question, <strong>NO</strong>. Even if the input has zeroes before the most significant digit.</li>
+  </ul>
+
+</blockquote>
+
+
+              </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-9">
+          <div class="panel panel-default" style="display: none">
+  <div class="panel-body" id="status-ht"></div>
+  <ul class="list-group" id="status-ct"></ul>
+</div>
+<form class="edit_problem" id="edit_problem_66" action="/courses/programming/topics/arrays/problems/plus1/submit-solution/" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="iE+ThFda33v+buhInaB6PjU/BX04Gc3Lx9oSKczf+RBIAsrsJT2DWbjSNu2at7jM4F1HGWftTuUSsrAP86HFXg==" />
+    <input type="hidden" name="submission_content" id="hidden_code"/>
+    <input type="hidden" name="submission_type" id="submission_type"/>
+
+    <div class="panel panel-default code-editor">
+      <div class="panel-heading">
+        <div class="pull-left" style="line-height: 32px; margin-left: 2.2em">
+          <span style="margin-right: 1.1em">Time Limit: <span id="time-limit">3</span> Sec</span>
+          <span style="margin-left: 1.1em">Memory Limit: <span id="memory-limit">25</span> MB</span>
+        </div>
+        <div class="pull-right">
+          <select class="form-control" name="programming_language_id" id="select-language">
+                <option value="11" >C (gcc-4.8)</option>
+                <option value="44" selected>C++11 (gcc-4.8)</option>
+                <option value="4" >Python (python-2.7)</option>
+                <option value="511" >Java 8 (oracle-jdk-1.8)</option>
+          </select>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div style="position: relative;">
+        <textarea id="editor" class="form-control" rows="18" name="code">vector&lt;int&gt; Solution::plusOne(vector&lt;int&gt; &amp;A) {
+
+    int start = 0, end = A.size()-1;
+
+    for(int i=0;i&lt;=end,start!=end;i++){
+
+        if(A[i]==0)
+
+            start++;
+
+        else break;
+
+    }
+
+    int carry = 1;
+
+    for(int i=end;i&gt;=start;i--){
+
+        if(A[i]+carry&lt;10){
+
+            A[i]+=carry;
+
+            break;
+
+        }
+
+        else{ 
+
+            A[i] = (A[i]+carry)%10;
+
+            if(i==start){
+
+                A.insert(A.begin(),1);
+
+            }
+
+        }
+
+    }
+
+    start = 0;
+
+    for(int i=0;i&lt;=end,start!=end;i++){
+
+        if(A[i]==0)
+
+            start++;
+
+        else break;
+
+    }
+
+    vector&lt;int&gt; B(A.begin()+start,A.end());
+
+    return B;
+
+}
+
+</textarea>
+      </div>
+      <div class="panel-footer">
+        <div class="btn-group">
+          <input type="button" class="btn btn-info" value="Save" id="problem-save-btn" data-url="/courses/programming/topics/arrays/problems/plus1/save-solution/"/>
+          <input type="button" class="btn btn-danger" value="Reset" id="problem-reset-btn" data-url="/courses/programming/topics/arrays/problems/plus1/delete-solution/" />
+        </div>
+        <span id="action_message" style="margin-left: 15px"></span>
+        <div class="btn-group pull-right">
+          <input type="submit" class="btn btn-danger" value="Submit" data-toggle="tooltip" data-placement="top" title="Wrong submission have a score penalty. We recommend testing your code before submitting"/>
+          <input type="submit" class="btn btn-info" value="Test"/>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+</form>
+    </div>
+        <div class="col-xs-12 col-md-3">
+          <div class="panel panel-default hint-panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">Hints</h3>
+            </div>
+            <ul class="list-group hint-list">
+                  <li data-less-score="50" class="list-group-item accessed-hint">
+                    <a href="/courses/programming/topics/arrays/problems/plus1/hints/149/">Solution Approach</a>
+                        <i class="pull-right fa fa-unlock-alt glyphicon-info" style="font-size: 22px"></i>
+                  </li>
+                  <li data-less-score="100" class="list-group-item accessed-hint">
+                    <a href="/courses/programming/topics/arrays/problems/plus1/hints/150/">Complete Solution</a>
+                        <i class="pull-right fa fa-unlock-alt glyphicon-info" style="font-size: 22px"></i>
+                  </li>
+            </ul>
+          </div>
+
+              <div class="panel panel-success successful-submissions">
+                <div class="panel-body">
+                  <span class="submission-count">81</span> successful submissions.
+                </div>
+              </div>
+
+          
+              <div class="panel-group">
+                <div class="panel panel-default company-panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Asked In:</h3>
+                  </div>
+
+                  <ul class="list-group">
+                        <li class="list-group-item">Google</li>
+                  </ul>
+                </div>
+              </div>
+        </div>
+  </div>
+  <div class="row">
+
+    <div id="problem_comment">
+      <div role="tabpanel">
+        <ul class="nav nav-tabs " role="tablist">
+          <li role="presentation" class="active"><a href="#fb-comments-unsolved" aria-controls="fb-comments-unsolved" role="tab" data-toggle="tab">Problem Discussion</a></li>
+          <li role="presentation"><a href="#fb-comments-solved" aria-controls="fb-comments-solved" role="tab" data-toggle="tab">Solution Discussion</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active" id="fb-comments-unsolved">
+            <span class="problem_comment_header">
+              This thread is for people who have not yet solved the problem. Please do not post solutions here.
+            </span>
+
+            <div class="fb-comments"
+                 data-href="http://www.interviewbit.com/comment/bce6725c3d45bb2a909ba198db2e56df"
+                 data-width="100%"></div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="fb-comments-solved">
+            <span class="problem_comment_header">
+              This thread is for people who have solved the problem. You may discuss your solutions here
+            </span>
+
+                <div class="fb-comments"
+                     data-href="http://www.interviewbit.com/comment/da512fbac4e76fda68b25025622baa14"
+                     data-width="100%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default adblck-warn hidden" style="margin-top: 20px">
+      <div class="panel-body">
+        There used to be a comment thread here.
+        <wbr>
+        But it seems you have ad block turned on.
+        <wbr>
+        We do not display ads on this site
+        <wbr>
+        and disabling ad block will improve your experience.
+      </div>
+    </div>
+  </div>
+
+  <div id="help_button" class="btn btn-default hidden">
+    <a id="help_anchor" href="/chat/" target="_blank">
+      <span class="glyphicon glyphicon-comment"></span>
+      <span id="help_text">Need Help?</span>
+    </a>
+  </div>
+</div>
+
+
+<section id="footer" class="section">
+  <div class="container">
+    <div class="row text-center" style="padding: 10px">
+        Join us on IRC at
+        <a target="_blank" href="https://kiwiirc.com/client/irc.freenode.com/?nick=dkathayat#interviewbit">#interviewbit</a>
+        on freenode for bugs, help or suggestions.
+    </div>
+    <div class="row text-center" id="footer-pages">
+      <ul class="list-inline">
+        <li><a href="/pages/about_us/">About Us</a></li>
+        <li><a href="/pages/faq/">FAQ</a></li>
+        <li><a href="/pages/contact_us/">Contact Us</a></li>
+        <li><a href="/pages/terms/">Terms</a></li>
+        <!--<li><a href="">Terms of Service</a></li>-->
+        <li><a href="/pages/privacy/">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="row text-center" style="margin-top: 10px" id="footer-social">
+        <ul class="list-inline">
+          <li>
+            <a target="_blank" href="https://www.facebook.com/interviewbit">
+              <i class="fa fa-facebook"></i>
+              <span style="padding-left: 8px">Like Us</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/interview_bit">
+              <i class="fa fa-twitter"></i>
+              <span style="padding-left: 8px">Follow Us</span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="mailto:hello@interviewbit.com">
+              <i class="fa fa-envelope-o"></i>
+              <span style="padding-left: 8px">Email</span>
+            </a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</section>
+
+<script type="text/x-template" id="global-modal-template">
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Info</h4>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+    
+<a href="#" data-toggle="modal" data-target="#feedbackmodal">
+  <div class="feedback-box">
+    <i>
+      <svg viewBox="0 0 50 50" enable-background="0 0 50 50">
+        <path class="fill" d="M25.5,13c-4.7,0-8.5,3.8-8.5,8.5c0,4.7,3.8,8.5,8.5,8.5c4.7,0,8.5-3.8,8.5-8.5C34,16.8,30.2,13,25.5,13z M26,29v-3.3l0.6,0.6c0.1,0.1,0.2,0.1,0.4,0.1s0.3,0,0.4-0.1l1.5-1.5c0.2-0.2,0.2-0.5,0-0.7s-0.5-0.2-0.7,0L27,25.3l-1.1-1.1c0,0-0.1-0.1-0.2-0.1c-0.1-0.1-0.3-0.1-0.4,0c-0.1,0-0.1,0.1-0.2,0.1L24,25.3l-0.9-0.9c-0.2-0.2-0.5-0.2-0.7,0s-0.2,0.5,0,0.7l1.2,1.2c0.2,0.2,0.5,0.2,0.7,0l0.6-0.6V29c-3.9-0.3-7-3.5-7-7.5c0-4.1,3.4-7.5,7.5-7.5s7.5,3.4,7.5,7.5C33,25.5,29.9,28.7,26,29z"/>
+        <path class="fill" d="M28,31h-5c-0.3,0-0.5,0.2-0.5,0.5S22.7,32,23,32h5c0.3,0,0.5-0.2,0.5-0.5S28.3,31,28,31z"/>
+        <path class="fill" d="M28,33h-5c-0.3,0-0.5,0.2-0.5,0.5S22.7,34,23,34h5c0.3,0,0.5-0.2,0.5-0.5S28.3,33,28,33z"/>
+        <path class="fill" d="M28,35h-5c-0.3,0-0.5,0.2-0.5,0.5S22.7,36,23,36h2v0.5c0,0.3,0.2,0.5,0.5,0.5s0.5-0.2,0.5-0.5V36h2c0.3,0,0.5-0.2,0.5-0.5S28.3,35,28,35z"/>
+      </svg>
+    </i>
+    We are in beta! We would love to hear your feedback.
+  </div>
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="feedbackmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Your feedback is important to help us improve.</h4>
+      </div>
+      <form class="form" id="feedback-form" action="/feedback/" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="rURLzX4JTaqREgWzcthuMNbXhmy5geOPoVnRFL8YFH9tCRKlDG4RiNeu2xZ1z6zCA7XECOZ1YKF0MXMygGYoMQ==" />
+
+        <div class="modal-body">
+          <div class="success-msg alert alert-notice alert-dismissible hidden"></div>
+          <div class="form-group">
+            <label for="content">Feedback</label>
+            <textarea rows="6" class="form-control" id="content" name="content" placeholder="Your question or comment here"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+          </div>
+        </div>
+</form>    </div>
+  </div>
+</div>
+
+
+
+<script src="https://dajh2p2mfq4ra.cloudfront.net/assets/web/application-dfc33869799f3e599f4245398875781c6c2db6083da4546894d4d43094457f4e.js.gz" crossorigin="anonymous"></script>
+<script src="https://dajh2p2mfq4ra.cloudfront.net/assets/web/problems-a1f81bfc09feb32fad84e2b32659806760788302d62594ffc294f5dbc7c27502.js.gz" crossorigin="anonymous"></script>
+    <script>
+        myinterviewtrainer.problem.submit.init({
+            problem_id: 66,
+            getCodeUrl: "/courses/programming/topics/arrays/problems/plus1//get_last_submission"
+        });
+    </script>
+    <div id="fb-root"></div>
+<script type="text/javascript">
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=314158428787536&version=v2.3";
+js.onerror = function(){$(".adblck-warn").removeClass("hidden"); $("#problem_comment_header").addClass('hidden');};
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+    <script>myinterviewtrainer.tag_search.init();</script>
+    <script>
+        $("#feedback-form").on("submit", function(){
+            $form = $(this);
+            $('button[type=submit]', $form).attr('disabled', 'disabled');
+            $.loader({
+                className:"blue-with-image-2",
+                content:''
+            });
+            $.ajax({
+                url: $form.attr("action"),
+                data: $form.serialize(),
+                type: $form.attr("method"),
+                complete: function () {
+                    $.loader('close');
+                    $('button[type=submit]', $form).attr('disabled', false);
+                },
+                success: function(resp){
+                    if(resp.success){
+                        $(".success-msg", $form).hide().removeClass('hidden').html(resp.info).fadeIn('slow');
+                        $("#content", $form).val('');
+                    }else{
+                        alert('something went wrong. Please try again.');
+                    }
+
+                },
+                error: function(){
+                    alert('something went wrong. Please try again.');
+                }
+            });
+            return false;
+        });
+    </script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-56207880-1', {'userId':'449'});
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>
