@@ -47,12 +47,13 @@
 
 	  <div class="panel-footer" style="border-top: 650 px solid #ddd;" >
 		<div class="btn-group">
-  		  <%= link_to "<button class=\"btn btn-danger\">Reset</button>".html_safe, code_eval_index_path, :method => "get" %>
+  		  <%= link_to "<button class=\"btn btn-danger\">Reset</button>".html_safe, code_eval_index_path, :method => "get", :id => "reset" %>
 		</div>
 	
 		<div class="btn-group pull-right">
-		  <%= f.submit "Submit", :name => "submit_button", class: 'btn btn-success' %>
+	
 		  <%= f.submit "Test", :name => "test_button", class: 'btn btn-info'  %>
+		  	  <%= f.submit "Submit", :name => "submit_button", class: 'btn btn-success' %>
 		</div>
 
 	  </div>
@@ -100,7 +101,7 @@
 
 <div class="row">
  <div class="col-xs-12 col-md-9">
-  <div id="result-box" class="panel panel-default" style="display: none;">
+  <div id="result-box" class="panel panel-default" style="display: none;" tabindex='1'>
   </div>
  
   <div id="problem_comment">
@@ -147,6 +148,15 @@
 	
 	<script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
 <script>
+  $('#Submit').click(function() {
+  $('#result-box').focus();
+});
+   $('#Test').click(function() {
+  $('#result-box').focus();
+});
+   $('#Reset').click(function() {
+  $('#code').focus();
+});
   // Hook up ACE editor to all textareas with data-editor attribute
   $(function () {
   $('textarea[data-editor]').each(function () {

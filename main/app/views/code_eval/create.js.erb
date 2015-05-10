@@ -3,9 +3,11 @@ $('#result-box').slideUp(1);
 <% if @flag_01 and @flag_02 %>
 $('#result-box').html("<%= j (render partial: 'success') %>");
 $('#result-box').slideDown(1000);
+$('#result-box').focus();
 <% else %>
 $('#result-box').html("<%= j (render partial: 'failure') %>");
 $('#result-box').slideDown(1000);
+$('#result-box').focus();
 <% end %>
 <% end %>
 
@@ -14,14 +16,17 @@ $('#result-box').slideUp(1);
 <% if @flag_01 and @flag_02 %>
 $('#result-box').html("<%= j (render partial: 'success') %>");
 $('#result-box').slideDown(1000);
+$('#result-box').focus();
 <% else %>
 $('#result-box').html("<%= j (render partial: 'failure') %>");
 $('#result-box').slideDown(1000);
+$('#result-box').focus();
 <% end %>
 <% end %>
 
 <% if params[:reset_button] %>
 $('#result-box').slideUp(1000);
+$('#reset').focus();
 <% end %>
 
 // Do ajax, jquery, rails for submit, test.
