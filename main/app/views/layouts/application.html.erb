@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Main</title>
-<head>
-  <link rel="icon" type="image/png" href="https://dajh2p2mfq4ra.cloudfront.net/assets/favicon-9414372d0345a6e17040ae77f41c1c5fc151f5dc7cd6c63d9887cfef8552734a.png.gz">
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-<%= stylesheet_link_tag "my-style-1.css" %>
-<%= stylesheet_link_tag "my-style-2.css" %>
-<%= csrf_meta_tags %>
-</head>
-<body>
- <%= render 'shared/navigation' %>
+  <head>
+	<title>Main</title>
+  <head>
+	<link rel="icon" type="image/png" href="https://dajh2p2mfq4ra.cloudfront.net/assets/favicon-9414372d0345a6e17040ae77f41c1c5fc151f5dc7cd6c63d9887cfef8552734a.png.gz">
+		<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+	<%= stylesheet_link_tag "my-style-1.css" %>
+	<%= stylesheet_link_tag "my-style-2.css" %>
 
-<div id="main-container" class="container">  <%= yield %>    </div>
-<section id="footer" class="section">
-  <div class="container">
-    <div class="row text-center" style="padding: 10px">
-        Join us on IRC at
-        <a target="_blank" href="#">#interviewbit</a>
-        on freenode for bugs, help or suggestions.
-    </div>
-    <div class="row text-center" id="footer-pages">
-      <ul class="list-inline">
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Terms</a></li>
-        <!--<li><a href="">Terms of Service</a></li>-->
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
-    </div>
-    <div class="row text-center" style="margin-top: 10px" id="footer-social">
-        <ul class="list-inline">
-          <li>
-            <a target="_blank" href="https://www.facebook.com/interviewbit">
-              <i class="fa fa-facebook"></i>
-              <span style="padding-left: 8px">Like Us</span>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="https://twitter.com/interview_bit">
-              <i class="fa fa-twitter"></i>
-              <span style="padding-left: 8px">Follow Us</span>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="mailto:hello@interviewbit.com">
-              <i class="fa fa-envelope-o"></i>
-              <span style="padding-left: 8px">Email</span>
-            </a>
-          </li>
-        </ul>
-    </div>
-  </div>
-</section>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "my-js.js", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "my-js-2.js", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+  </head>
+  <body>
+	<%= render 'shared/navigation' %>
 
-</body>
+	<div id="main-container" class="container">  <%= yield %>    </div>
+	<section id="footer" class="section">
+	  <div class="container">
+		<div class="row text-center" style="padding: 10px">
+          Join us on IRC at
+          <a target="_blank" href="#">#interviewbit</a>
+          on freenode for bugs, help or suggestions.
+		</div>
+		<div class="row text-center" id="footer-pages">
+		  <ul class="list-inline">
+			<li><a href="#">About Us</a></li>
+			<li><a href="#">FAQ</a></li>
+			<li><a href="#">Contact Us</a></li>
+			<li><a href="#">Terms</a></li>
+			<!--<li><a href="">Terms of Service</a></li>-->
+			<li><a href="#">Privacy Policy</a></li>
+		  </ul>
+		</div>
+		<div class="row text-center" style="margin-top: 10px" id="footer-social">
+          <ul class="list-inline">
+			<li>
+              <a target="_blank" href="https://www.facebook.com/interviewbit">
+				<i class="fa fa-facebook"></i>
+				<span style="padding-left: 8px">Like Us</span>
+              </a>
+			</li>
+			<li>
+              <a target="_blank" href="https://twitter.com/interview_bit">
+				<i class="fa fa-twitter"></i>
+				<span style="padding-left: 8px">Follow Us</span>
+              </a>
+			</li>
+			<li>
+              <a target="_blank" href="mailto:hello@interviewbit.com">
+				<i class="fa fa-envelope-o"></i>
+				<span style="padding-left: 8px">Email</span>
+              </a>
+			</li>
+          </ul>
+		</div>
+	  </div>
+	</section>
+
+  </body>
 </html>

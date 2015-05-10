@@ -24,11 +24,13 @@ class CodeEvalController < ApplicationController
       @instance = Ideone.new('codeevaluator','q1w2e3r4', true)
       @solution = params[:code][:body]
       if params[:test_button]
-         input = Sourcecode.first.sampleinput
-         @token = @instance.create_submission(@solution, 1, input)
+         @input = Sourcecode.first.sampleinput
+         @expected_output = Sourcecode.first.sampleoutput
+         @token = @instance.create_submission(@solution, 41, @input)
       else
-         input = Sourcecode.first.input
-         @token = @instance.create_submission(@solution, 1, input)
+         @input = Sourcecode.first.input
+         @expected_output = Sourcecode.first.output
+         @token = @instance.create_submission(@solution, 41, @input)
       end
       timeout = 4
       i = 0
@@ -41,17 +43,19 @@ class CodeEvalController < ApplicationController
       @status_number = @result[:status]
       @details = @instance.submission_details(@token)
     end
+    @flag = false
     case @details["result"]
       when "0"
-        @result_statement = "Not running"
+        @result_statement = "The program did not run"
       when "11"
-        @result_statement = "Compilation error"
+        @result_statement = "The program did not compile correctly"
       when "12"
         @result_statement = "Runtime error"
       when "13"
         @result_statement = "Execution timed out"
        when "15"
         @result_statement = "Success!"
+        @flag = true
       when "17"
         @result_statement = "Memory limit exceeded"
       when "19"
@@ -64,8 +68,16 @@ class CodeEvalController < ApplicationController
 
     if i == timeout
       @result_statement = "Timed out while waiting for code result."
+      @flag = false
     end
-
+    
+    @stderr = @details["stderr"]
+    @cmpinfo = @details["cmpinfo"]
+    @prog_output = @details["output"]
+    @output_no_match = true 
+    if @prog_output == @expected_output
+      @output_no_match = false
+    end
   end
 
 end

@@ -1,13 +1,29 @@
 <% if params[:test_button] %>
-$('#result-box').html("<%= escape_javascript (render partial: 'create') %>");
-$('#result-box').slideDown(550);
+$('#result-box').slideUp(1);
+<% if @flag %>
+$('#result-box').html("<%= j (render partial: 'success') %>");
+$('#result-box').slideDown(1000);
+<% else %>
+$('#result-box').html("<%= j (render partial: 'failure') %>");
+$('#result-box').slideDown(1000);
+<% end %>
 <% end %>
 
 <% if params[:submit_button] %>
-$('#result-box').html("<%= escape_javascript (render partial: 'create') %>");
-$('#result-box').slideDown(550);
+$('#result-box').slideUp(1);
+<% if @flag %>
+$('#result-box').html("<%= j (render partial: 'success') %>");
+$('#result-box').slideDown(1000);
+<% else %>
+$('#result-box').html("<%= j (render partial: 'failure') %>");
+$('#result-box').slideDown(1000);
+<% end %>
 <% end %>
 
 <% if params[:reset_button] %>
-$('#result-box').slideUp(550);
-<% end %>	
+$('#result-box').slideUp(1000);
+<% end %>
+
+// Do ajax, jquery, rails for submit, test.
+// Include modal code.
+//

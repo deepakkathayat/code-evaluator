@@ -1,0 +1,1 @@
+<p class="list-group-item text-success"><i class="fa fa-check"></i><span>Compilation error: <%= @result_statement%></span></p>
