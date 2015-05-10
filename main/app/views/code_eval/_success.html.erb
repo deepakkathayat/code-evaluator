@@ -1,46 +1,57 @@
 <li class="list-group-item">
       <a style="text-decoration: none; color:black" data-toggle="collapse" href="#view-compile-error" aria-expanded="true" aria-controls="view-compile-error">
-        <div class="pull-left">Compilation</div>
+        <div class="pull-left">Compilation Successful</div>
             <div class="pull-right text-success"><i class="fa fa-check"></i></div>
         <div class="clearfix"></div>
       </a>
     </li>
 
-
-<% if @output_no_match %>
 <li class="list-group-item">
   <a style="text-decoration: none; color:black" data-toggle="collapse" href="#view-code-error-trivial_case_correctness" aria-expanded="true" aria-controls="view-code-error-trivial_case_correctness" class="">
     <div class="pull-left"><span class="caret" style="margin-right: 0.75em"></span></div>
-    <div class="pull-left">Trivial Case Correctness</div>
-    <div class="pull-right text-danger"><i class="fa fa-times glyphicon-danger"></i></div>
+    <div class="pull-left">Test Cases</div>
+    <div class="pull-right text-success"><i class="fa fa-caret-square-o-right"></i></div>
     <div class="clearfix"></div>
   </a>
-
-
   <div id="view-code-error-trivial_case_correctness" class="collapse in" style="margin-top: 1.1em">
-    <div>Wrong Answer. Your program's output doesn't match the expected output.
-    </div>
-    <div>Your submission failed for the following input:</div>
-    <div class="well well-sm" style="overflow: auto">
-      <code style="padding: 0; white-space:pre-wrap; ">
-		<%= raw @input %>
+      <div>Program Input-1: </div>
+    <div class="well well-sm" style="margin-top: 1.1em; overflow: auto">
+      <code>
+		<%= raw @input_01 %>
 	  </code>
     </div>
-    <div>Your function returned the following :</div>
+    <div>Program Output-1: </div>
     <div class="well well-sm" style="margin-top: 1.1em;overflow: auto">
-      <code style="padding: 0; white-space:pre-wrap;">
-		<%= raw @prog_output %>
+      <code>
+		<%= raw @prog_output_01 %>
 	  </code>
     </div>
-    <div>The expected returned value :</div>
+    <div>Expected Output-1: </div>
     <div class="well well-sm" style="margin-top: 1.1em;  overflow: auto">
-      <code style="padding: 0;white-space:pre-wrap; ">
-		<%= raw @expected_output %>
+      <code>
+		<%= raw @expected_output_01 %>
+	  </code>
+    </div>
+	<hr style="height:3px;border:none;color:#333;background-color:#333;">
+	<div>Program Input-2: </div>
+    <div class="well well-sm" style="margin-top: 1.1em; overflow: auto">
+      <code>
+		<%= raw @input_02 %>
+	  </code>
+    </div>
+    <div>Program Output-2: </div>
+    <div class="well well-sm" style="margin-top: 1.1em;overflow: auto">
+      <code>
+		<%= raw @prog_output_02 %>
+	  </code>
+    </div>
+    <div>Expected Output-2: </div>
+    <div class="well well-sm" style="margin-top: 1.1em;  overflow: auto">
+      <code>
+		<%= raw @expected_output_02 %>
 	  </code>
     </div>
   </div>
   </li>
-<% else %>
-<p class="text-success"><i class="fa fa-check"></i><span>Correct Answer.</span></p>
-  <% end %>				
+
 

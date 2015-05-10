@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507202649) do
+ActiveRecord::Schema.define(version: 20150510140150) do
 
   create_table "sourcecodes", force: :cascade do |t|
     t.text     "body"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.text     "problem"
     t.text     "sampleinput"
     t.text     "sampleoutput"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20150507202649) do
     t.text     "output"
     t.text     "inputa"
     t.text     "outputa"
+    t.text     "sampleinputa"
+    t.text     "sampleoutputa"
+    t.string   "name"
+    t.string   "asked"
+    t.integer  "nsubs"
   end
 
 end

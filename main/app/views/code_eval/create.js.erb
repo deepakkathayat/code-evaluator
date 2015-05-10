@@ -1,6 +1,6 @@
 <% if params[:test_button] %>
 $('#result-box').slideUp(1);
-<% if @flag %>
+<% if @flag_01 and @flag_02 %>
 $('#result-box').html("<%= j (render partial: 'success') %>");
 $('#result-box').slideDown(1000);
 <% else %>
@@ -11,7 +11,7 @@ $('#result-box').slideDown(1000);
 
 <% if params[:submit_button] %>
 $('#result-box').slideUp(1);
-<% if @flag %>
+<% if @flag_01 and @flag_02 %>
 $('#result-box').html("<%= j (render partial: 'success') %>");
 $('#result-box').slideDown(1000);
 <% else %>
